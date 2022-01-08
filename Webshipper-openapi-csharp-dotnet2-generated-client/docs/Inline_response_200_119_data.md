@@ -1,0 +1,9 @@
+# IO.Swagger.Model.InlineResponse200119Data
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Attributes** | [**Triggers**](Triggers.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

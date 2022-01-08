@@ -1,0 +1,46 @@
+# IO.Swagger.Model.Shipments
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Reference** | **string** | The reference you want to identify the shipment form. For example order number. | [optional] 
+**Comment** | **string** | An optional comment for the carrier | [optional] 
+**ServiceCode** | **string** | The carrier&#x27;s service code. This should only be assigned if you are not using a shipping rate. | [optional] 
+**IsReturn** | **bool?** | Determines whether the shipment is a return shipment. | [optional] 
+**Packages** | [**List&lt;Packages&gt;**](Packages.md) | Flattened array of packages to be sent. At least one package is mandatory. For structure refer to &#x27;Package&#x27; entity | [optional] 
+**DeliveryAddress** | **Object** | Flattened Shipping Address representing the delivery address for the shipment. &lt;br&gt;&lt;strong&gt;Duplicated from order if order relation given.&lt;/strong&gt;. | [optional] 
+**SenderAddress** | **Object** | Flattened Shipping Address representing the sender address of shipment. &lt;br&gt;&lt;strong&gt;Duplicated from order if order relation given.&lt;/strong&gt;. | [optional] 
+**BillingAddress** | **Object** | Flattened Shipping Address representing the billing address of shipment. Duplicated from delivery address if empty. &lt;br&gt;&lt;strong&gt;Duplicated from order if order relation given.&lt;/strong&gt;. | [optional] 
+**PickupAddress** | **Object** | Flattened Shipping Address representing the pickup address of shipment. Is necessary for some carriers. This is duplicated from sender address if empty. &lt;br&gt;&lt;strong&gt;Duplicated from order if order relation given.&lt;/strong&gt;. | [optional] 
+**ReturnAddress** | **Object** | Flattened Shipping Address represnting return addres of shipment. Will be duplicated from sender address if empty ( Not used by all carriers ). &lt;br&gt;&lt;strong&gt;Duplicated from order if order relation given.&lt;/strong&gt;. | [optional] 
+**ServiceAttributes** | **List&lt;string&gt;** | Array of hashes to assign parameters for any specific carrier service. It is only required if you are &lt;strong&gt;not&lt;/strong&gt; using shipping rates and the service has additional required parameters. The hash must have the keys attr_key and attr_value. The type of attr_value should match the attr_type defined by the parameter. To see all possible attributes, please see the list of parameters from the carrier service. &lt;strongShould only be assigned if you are not using a shipping rate&lt;/strong&gt;. | [optional] 
+**AddOns** | **List&lt;string&gt;** | Array of add-ons. Add-ons are simply arrays of strings. To see possible add-ons, please refer to the carrier services. &lt;strong&gt;Should only be assigned if you are not using a shipping rate&lt;/strong&gt;. | [optional] 
+**SmsNotification** | **string** | Must be passed if the carrier should be allowed to send SMS notifications. It should be assigned with a hash including the key phone containing the phone number to be notified. &lt;strong&gt;Should only be assigned if you are not using a shipping rate&lt;/strong&gt;. | [optional] 
+**EmailNotification** | **string** | Must be passed if the carrier should be allowed to send e-mail notifications. It should be assigned with a hash including the key email containing the e-mail address to be notified. &lt;strong&gt;Should only be assigned if you are not using a shipping rate&lt;/strong&gt;. | [optional] 
+**IncludedDocuments** | **string** | Flattened array of Document - can be used to upload documents to the shipment which will be sent to the carrier. | [optional] 
+**DropPoint** | **string** | Flattened Drop Point - should only be assigned if you are sending to a drop point. | [optional] 
+**TrackingLinks** | [**List&lt;ShipmentsTrackingLinks&gt;**](ShipmentsTrackingLinks.md) | An array of objects with the keys:       &lt;ul&gt;         &lt;li&gt;&lt;code&gt;url&lt;/code&gt;: The full URL to the tracking page.&lt;/li&gt;         &lt;li&gt;&lt;code&gt;number&lt;/code&gt;: The tracking identifier.&lt;/li&gt;         &lt;li&gt;&lt;code&gt;latest_transit_event&lt;/code&gt;: The latest tracking/transit event. Same options as Tracking Event statuses.&lt;/li&gt;         &lt;li&gt;&lt;code&gt;tracking_events&lt;/code&gt;: Array of objects. Object has same attributes as the Tracking Event resource&lt;/li&gt;       &lt;/ul&gt;        | [optional] 
+**FulfillImmediately** | **string** | Deprecated | [optional] 
+**TestMode** | **bool?** |  | [optional] 
+**Dutiable** | **bool?** |  | [optional] 
+**CreatedAt** | **string** | The time when the resource was created | [optional] 
+**ExtRef** | **string** | The external (carrier) reference | [optional] 
+**OriginalShipmentId** | **int?** |  | [optional] 
+**SendTime** | **string** |  | [optional] 
+**Status** | **int?** |  | [optional] 
+**LatestUpdateTime** | **string** |  | [optional] 
+**SupportsUpdates** | **string** |  | [optional] 
+**AdditionalAttributes** | **string** | Flattened hash with optional key/value pairs. | [optional] 
+**CostPrice** | [**decimal?**](BigDecimal.md) | The cost price of the shipment, either directly from the carrier or from a cost sheet | [optional] 
+**SalesPrice** | [**decimal?**](BigDecimal.md) | The price presented to the customer in checkout | [optional] 
+**Currency** | **string** |  | [optional] 
+**ManualOrderShipmentCreation** | **string** |  | [optional] 
+**CarrierTypeName** | **string** | Webshipper defined name of the carrier type | [optional] 
+**CarrierAlias** | **string** | Carrier alias set by the user in Webshipper | [optional] 
+**CarrierId** | **int?** | ID of the carrier | [optional] 
+**InvoiceSettings** | **string** |  | [optional] 
+**LatestStatusEvent** | **string** |  | [optional] 
+**OriginalShipment** | **string** | An optional link to the original shipment, when creating a return-shipment | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

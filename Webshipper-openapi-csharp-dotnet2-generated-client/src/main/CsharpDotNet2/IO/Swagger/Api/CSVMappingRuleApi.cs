@@ -1,0 +1,278 @@
+using System;
+using System.Collections.Generic;
+using RestSharp;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace IO.Swagger.Api
+{
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface ICSVMappingRuleApi
+    {
+        /// <summary>
+        /// List all CSV Mapping Rules 
+        /// </summary>
+        /// <param name="filterId">Filter by id</param>
+        /// <returns>InlineResponse20021</returns>
+        InlineResponse20021 CsvRulesGet (string filterId);
+        /// <summary>
+        /// Delete a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 CsvRulesIdDelete (int? id);
+        /// <summary>
+        /// Show a single CSV Mapping Rule 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 CsvRulesIdGet (int? id);
+        /// <summary>
+        /// Update a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 CsvRulesIdPatch (CsvRulesIdBody body, int? id);
+        /// <summary>
+        /// Create a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 CsvRulesPost (CsvRulesBody body);
+    }
+  
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public class CSVMappingRuleApi : ICSVMappingRuleApi
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CSVMappingRuleApi"/> class.
+        /// </summary>
+        /// <param name="apiClient"> an instance of ApiClient (optional)</param>
+        /// <returns></returns>
+        public CSVMappingRuleApi(ApiClient apiClient = null)
+        {
+            if (apiClient == null) // use the default one in Configuration
+                this.ApiClient = Configuration.DefaultApiClient; 
+            else
+                this.ApiClient = apiClient;
+        }
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CSVMappingRuleApi"/> class.
+        /// </summary>
+        /// <returns></returns>
+        public CSVMappingRuleApi(String basePath)
+        {
+            this.ApiClient = new ApiClient(basePath);
+        }
+    
+        /// <summary>
+        /// Sets the base path of the API client.
+        /// </summary>
+        /// <param name="basePath">The base path</param>
+        /// <value>The base path</value>
+        public void SetBasePath(String basePath)
+        {
+            this.ApiClient.BasePath = basePath;
+        }
+    
+        /// <summary>
+        /// Gets the base path of the API client.
+        /// </summary>
+        /// <param name="basePath">The base path</param>
+        /// <value>The base path</value>
+        public String GetBasePath(String basePath)
+        {
+            return this.ApiClient.BasePath;
+        }
+    
+        /// <summary>
+        /// Gets or sets the API client.
+        /// </summary>
+        /// <value>An instance of the ApiClient</value>
+        public ApiClient ApiClient {get; set;}
+    
+        /// <summary>
+        /// List all CSV Mapping Rules 
+        /// </summary>
+        /// <param name="filterId">Filter by id</param>
+        /// <returns>InlineResponse20021</returns>
+        public InlineResponse20021 CsvRulesGet (string filterId)
+        {
+    
+            var path = "/csv_rules";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+             if (filterId != null) queryParams.Add("filter[id]", ApiClient.ParameterToString(filterId)); // query parameter
+                        
+            // authentication setting, if any
+            String[] authSettings = new String[] { "BearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesGet: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesGet: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (InlineResponse20021) ApiClient.Deserialize(response.Content, typeof(InlineResponse20021), response.Headers);
+        }
+    
+        /// <summary>
+        /// Delete a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 CsvRulesIdDelete (int? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CsvRulesIdDelete");
+    
+            var path = "/csv_rules/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                    
+            // authentication setting, if any
+            String[] authSettings = new String[] { "BearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdDelete: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdDelete: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (InlineResponse20020) ApiClient.Deserialize(response.Content, typeof(InlineResponse20020), response.Headers);
+        }
+    
+        /// <summary>
+        /// Show a single CSV Mapping Rule 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 CsvRulesIdGet (int? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CsvRulesIdGet");
+    
+            var path = "/csv_rules/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                    
+            // authentication setting, if any
+            String[] authSettings = new String[] { "BearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdGet: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdGet: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (InlineResponse20020) ApiClient.Deserialize(response.Content, typeof(InlineResponse20020), response.Headers);
+        }
+    
+        /// <summary>
+        /// Update a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="id"></param>
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 CsvRulesIdPatch (CsvRulesIdBody body, int? id)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling CsvRulesIdPatch");
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CsvRulesIdPatch");
+    
+            var path = "/csv_rules/{id}";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+    
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
+
+            // authentication setting, if any
+            String[] authSettings = new String[] { "BearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.PATCH, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdPatch: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesIdPatch: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (InlineResponse20020) ApiClient.Deserialize(response.Content, typeof(InlineResponse20020), response.Headers);
+        }
+    
+        /// <summary>
+        /// Create a CSV Mapping Rule 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 CsvRulesPost (CsvRulesBody body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null) throw new ApiException(400, "Missing required parameter 'body' when calling CsvRulesPost");
+    
+            var path = "/csv_rules";
+            path = path.Replace("{format}", "json");
+                
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+    
+                                    postBody = ApiClient.Serialize(body); // http body (model) parameter
+
+            // authentication setting, if any
+            String[] authSettings = new String[] { "BearerAuth" };
+    
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.POST, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+    
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesPost: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CsvRulesPost: " + response.ErrorMessage, response.ErrorMessage);
+    
+            return (InlineResponse20020) ApiClient.Deserialize(response.Content, typeof(InlineResponse20020), response.Headers);
+        }
+    
+    }
+}
