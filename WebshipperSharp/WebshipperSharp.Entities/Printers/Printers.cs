@@ -9,7 +9,7 @@ namespace WebshipperSharp.Entities.Printers
     /// 
     /// </summary>
     [DataContract]
-    public class Printers
+    public class Printer
     {
         /// <summary>
         /// Name of the printer.
