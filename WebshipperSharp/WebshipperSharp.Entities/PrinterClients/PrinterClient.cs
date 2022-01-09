@@ -9,7 +9,7 @@ namespace WebshipperSharp.Entities.PrinterClients
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterClients
+    public class PrinterClient
     {
         /// <summary>
         /// Unique ID of the printer client
@@ -66,7 +66,7 @@ namespace WebshipperSharp.Entities.PrinterClients
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterClients {\n");
+            sb.Append("class PrinterClient {\n");
             sb.Append("  Uuid: ").Append(Uuid).Append('\n');
             sb.Append("  Approved: ").Append(Approved).Append('\n');
             sb.Append("  Alias: ").Append(Alias).Append('\n');

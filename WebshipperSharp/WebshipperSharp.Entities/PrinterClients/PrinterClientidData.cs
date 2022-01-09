@@ -9,7 +9,7 @@ namespace WebshipperSharp.Entities.PrinterClients
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterClientsidData
+    public class PrinterClientidData
     {
         /// <summary>
         /// Gets or Sets Id
@@ -30,7 +30,7 @@ namespace WebshipperSharp.Entities.PrinterClients
         /// </summary>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "attributes")]
-        public PrinterClients? Attributes { get; set; }
+        public PrinterClient? Attributes { get; set; }
 
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace WebshipperSharp.Entities.PrinterClients
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterClientsidData {\n");
+            sb.Append("class PrinterClientidData {\n");
             sb.Append("  Id: ").Append(Id).Append('\n');
             sb.Append("  Type: ").Append(Type).Append('\n');
             sb.Append("  Attributes: ").Append(Attributes).Append('\n');

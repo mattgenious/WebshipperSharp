@@ -1,29 +1,30 @@
 using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using WebshipperSharp.Entities.Relationships.PrinterClients;
 
-namespace WebshipperSharp.Entities.PrinterJobs
+namespace WebshipperSharp.Entities.PrinterClients
 {
 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterJobsBody
+    public class PrinterClientIdBody
     {
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "data")]
-        public PrinterJobsData? Data { get; set; }
+        public PrinterClientidData? Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Relationships
         /// </summary>
         [DataMember(Name = "relationships", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "relationships")]
-        public PrinterJobsidRelationships? Relationships { get; set; }
+        public PrinterClientidRelationships? Relationships { get; set; }
 
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterJobsBody {\n");
+            sb.Append("class PrinterClientIdBody {\n");
             sb.Append("  Data: ").Append(Data).Append('\n');
             sb.Append("  Relationships: ").Append(Relationships).Append('\n');
             sb.Append("}\n");

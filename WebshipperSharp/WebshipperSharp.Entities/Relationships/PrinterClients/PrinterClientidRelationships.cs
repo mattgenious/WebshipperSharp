@@ -3,35 +3,35 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using WebshipperSharp.Entities.Relationships.Carriers;
 
-namespace WebshipperSharp.Entities.PrinterClients
+namespace WebshipperSharp.Entities.Relationships.PrinterClients
 {
 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterClientsidRelationships
+    public class PrinterClientidRelationships
     {
         /// <summary>
         /// Gets or Sets LabelPrinter
         /// </summary>
         [DataMember(Name = "label_printer", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "label_printer")]
-        public PrinterClientsidRelationshipsLabelPrinter? LabelPrinter { get; set; }
+        public PrinterClientidRelationshipsLabelPrinter? LabelPrinter { get; set; }
 
         /// <summary>
         /// Gets or Sets ZplPrinter
         /// </summary>
         [DataMember(Name = "zpl_printer", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "zpl_printer")]
-        public PrinterClientsidRelationshipsLabelPrinter? ZplPrinter { get; set; }
+        public PrinterClientidRelationshipsLabelPrinter? ZplPrinter { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentPrinter
         /// </summary>
         [DataMember(Name = "document_printer", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "document_printer")]
-        public PrinterClientsidRelationshipsLabelPrinter? DocumentPrinter { get; set; }
+        public PrinterClientidRelationshipsLabelPrinter? DocumentPrinter { get; set; }
 
         /// <summary>
         /// Gets or Sets Location
@@ -48,7 +48,7 @@ namespace WebshipperSharp.Entities.PrinterClients
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterClientsidRelationships {\n");
+            sb.Append("class PrinterClientidRelationships {\n");
             sb.Append("  LabelPrinter: ").Append(LabelPrinter).Append('\n');
             sb.Append("  ZplPrinter: ").Append(ZplPrinter).Append('\n');
             sb.Append("  DocumentPrinter: ").Append(DocumentPrinter).Append('\n');

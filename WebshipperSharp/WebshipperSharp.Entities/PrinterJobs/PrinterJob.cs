@@ -9,7 +9,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterJobs
+    public class PrinterJob
     {
         /// <summary>
         /// The time when the resource was created
@@ -73,7 +73,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterJobs {\n");
+            sb.Append("class PrinterJob {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append('\n');
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append('\n');
             sb.Append("  Completed: ").Append(Completed).Append('\n');

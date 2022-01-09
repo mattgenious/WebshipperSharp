@@ -2,28 +2,28 @@ using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace WebshipperSharp.Entities.PrinterClients
+namespace WebshipperSharp.Entities.Relationships.PrinterClients
 {
 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterClientsIdBody
+    public class PrinterClientidRelationshipsLabelPrinterData
     {
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "data")]
-        public PrinterClientsidData? Data { get; set; }
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Relationships
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "relationships", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "relationships")]
-        public PrinterClientsidRelationships? Relationships { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "type")]
+        public string? Type { get; set; }
 
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace WebshipperSharp.Entities.PrinterClients
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterClientsIdBody {\n");
-            sb.Append("  Data: ").Append(Data).Append('\n');
-            sb.Append("  Relationships: ").Append(Relationships).Append('\n');
+            sb.Append("class PrinterClientidRelationshipsLabelPrinterData {\n");
+            sb.Append("  Id: ").Append(Id).Append('\n');
+            sb.Append("  Type: ").Append(Type).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

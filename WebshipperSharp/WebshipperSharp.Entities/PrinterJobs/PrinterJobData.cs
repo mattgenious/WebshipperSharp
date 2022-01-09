@@ -9,7 +9,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterJobsData
+    public class PrinterJobData
     {
         /// <summary>
         /// Gets or Sets Type
@@ -23,7 +23,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
         /// </summary>
         [DataMember(Name = "attributes", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "attributes")]
-        public PrinterJobs? Attributes { get; set; }
+        public PrinterJob? Attributes { get; set; }
 
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace WebshipperSharp.Entities.PrinterJobs
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterJobsData {\n");
+            sb.Append("class PrinterJobData {\n");
             sb.Append("  Type: ").Append(Type).Append('\n');
             sb.Append("  Attributes: ").Append(Attributes).Append('\n');
             sb.Append("}\n");

@@ -2,21 +2,21 @@ using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace WebshipperSharp.Entities.PrinterJobs
+namespace WebshipperSharp.Entities.Relationships.PrinterJobs
 {
 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public class PrinterJobsidData
+    public class PrinterJobidRelationshipsPrintableData
     {
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "id")]
-        public int? Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -24,13 +24,6 @@ namespace WebshipperSharp.Entities.PrinterJobs
         [DataMember(Name = "type", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "type")]
         public string? Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Attributes
-        /// </summary>
-        [DataMember(Name = "attributes", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "attributes")]
-        public PrinterJobs? Attributes { get; set; }
 
 
         /// <summary>
@@ -40,10 +33,9 @@ namespace WebshipperSharp.Entities.PrinterJobs
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrinterJobsidData {\n");
+            sb.Append("class PrinterJobidRelationshipsPrintableData {\n");
             sb.Append("  Id: ").Append(Id).Append('\n');
             sb.Append("  Type: ").Append(Type).Append('\n');
-            sb.Append("  Attributes: ").Append(Attributes).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
