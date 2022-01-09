@@ -20,6 +20,7 @@ namespace WebshipperSharp
             asyncRetryPolicy = Policy
                 .Handle<HttpRequestException>(HandleHttpRequestException)
                 .OrResult<HttpResponseMessage>(HandleHttpResponseMessage)
+                //.HandleResult<HttpResponseMessage>(HandleHttpResponseMessage)
                 .WaitAndRetryForeverAsync(retryAttempt => TimeSpan.FromSeconds(3));
         }
         private bool HandleHttpRequestException(HttpRequestException httpRequestException)
@@ -34,6 +35,11 @@ namespace WebshipperSharp
             if (httpResponseMessage.IsSuccessStatusCode) return false;
 
             LogErrors(httpResponseMessage);
+
+            if ((int)httpResponseMessage.StatusCode > 399 && (int)httpResponseMessage.StatusCode < 500)
+            {
+                throw new ArgumentException(httpResponseMessage.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+            }
 
             return true;
         }

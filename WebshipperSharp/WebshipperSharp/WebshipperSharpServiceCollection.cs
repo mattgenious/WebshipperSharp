@@ -14,7 +14,7 @@ namespace WebshipperSharp
             {
                 var options = services.GetRequiredService<IOptions<WebshipperSharpServiceOptions>>();
 
-                opts.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                opts.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.api+json"));
                 opts.BaseAddress = new Uri($"https://{options.Value.TenantName}.api.webshipper.io/v2/");
 
                 opts.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", options.Value.BearerToken);
