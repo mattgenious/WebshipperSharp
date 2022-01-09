@@ -40,7 +40,7 @@ namespace WebshipperSharp.Services
         }
         private void LogErrors(HttpResponseMessage httpResponseMessage)
         {
-            _logger.LogError(httpResponseMessage.RequestMessage.ToString());
+            _logger.LogError(httpResponseMessage.RequestMessage?.ToString());
             _logger.LogError(httpResponseMessage.ToString());
             _logger.LogError(httpResponseMessage.Content.ReadAsStringAsync().GetAwaiter().GetResult());
         }

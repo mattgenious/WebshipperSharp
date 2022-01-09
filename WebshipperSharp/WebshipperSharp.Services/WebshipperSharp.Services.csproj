@@ -32,10 +32,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
 		<PackageReference Include="Polly" Version="7.2.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\WebshipperSharp.Entities\WebshipperSharp.Entities.csproj" />
+		<PackageReference Include="WebshipperSharp.Entities" Version="0.0.1-alpha.1" />
 	</ItemGroup>
 
 </Project>
