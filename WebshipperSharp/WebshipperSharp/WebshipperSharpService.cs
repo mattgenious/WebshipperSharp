@@ -15,7 +15,7 @@ namespace WebshipperSharp
         {
             _logger = logger;
 
-            httpClient = httpClientFactory.CreateClient();
+            httpClient = httpClientFactory.CreateClient("WebshipperSharpClient");
 
             asyncRetryPolicy = Policy
                 .Handle<HttpRequestException>(HandleHttpRequestException)
