@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 
 namespace WebshipperSharp
@@ -11,12 +12,12 @@ namespace WebshipperSharp
 
             services.AddHttpClient("WebshipperSharpClient", (services, opts) =>
             {
-                var options = services.GetRequiredService<WebshipperSharpServiceOptions>();
+                var options = services.GetRequiredService<IOptions<WebshipperSharpServiceOptions>>();
 
                 opts.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                opts.BaseAddress = new Uri($"https://{options.TenantName}.api.webshipper.io/v2/");
+                opts.BaseAddress = new Uri($"https://{options.Value.TenantName}.api.webshipper.io/v2/");
 
-                opts.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", options.BearerToken);
+                opts.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", options.Value.BearerToken);
             }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler() { MaxConnectionsPerServer = 256 });
 
             services.AddTransient(x => options);
