@@ -1,9 +1,8 @@
 ﻿using Polly.Retry;
 using Microsoft.Extensions.Logging;
 using Polly;
-using System.Net.Http;
 
-namespace WebshipperSharp.Services
+namespace WebshipperSharp
 {
     public class WebshipperSharpService
     {

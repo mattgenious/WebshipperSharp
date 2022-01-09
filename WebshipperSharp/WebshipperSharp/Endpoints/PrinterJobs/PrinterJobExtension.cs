@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using WebshipperSharp.Entities.PrinterJobs;
 
-namespace WebshipperSharp.Services.Endpoints.PrinterJobs
+namespace WebshipperSharp.Endpoints.PrinterJobs
 {
     public static class PrinterJobExtension
     {
