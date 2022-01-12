@@ -32,6 +32,8 @@ namespace WebshipperSharp
 
         private bool HandleHttpResponseMessage(HttpResponseMessage httpResponseMessage)
         {
+            //var test = httpResponseMessage.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
             if (httpResponseMessage.IsSuccessStatusCode) return false;
 
             LogErrors(httpResponseMessage);

@@ -22,9 +22,10 @@ namespace Vuffeli.Net.Worker.Library.Tests.ClientTests.Customers
         [Fact]
         public async Task TestGetPrinterClientAsyncIdExists()
         {
-            var test = await _webshipperSharpService.GetPrinterClientAsync(3);
+            var test = await _webshipperSharpService.GetPrinterClientAsync(4);
 
             Assert.NotNull(test);
+            Assert.NotNull(test.Data.Attributes.Alias);
         }
 
 
@@ -32,6 +33,14 @@ namespace Vuffeli.Net.Worker.Library.Tests.ClientTests.Customers
         public async Task TestGetPrinterClientAsyncIdDoesNotExist()
         {
             await Assert.ThrowsAsync<ArgumentException>(async () => await _webshipperSharpService.GetPrinterClientAsync(-99999));
+        }
+
+        [Fact]
+        public async Task TestGetPrinterClientByShipmentIdAsync()
+        {
+            var test = await _webshipperSharpService.GetPrinterClientByShipmentIdAsync(1);
+
+            Assert.NotNull(test);
         }
     }
 }
