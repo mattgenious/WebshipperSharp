@@ -3,7 +3,6 @@ using System;
 using System.Threading.Tasks;
 using Vuffeli.Net.Worker.Library.Tests.Fixtures;
 using WebshipperSharp;
-using WebshipperSharp.Endpoints.PrinterClients;
 using Xunit;
 
 namespace Vuffeli.Net.Worker.Library.Tests.ClientTests.Customers
