@@ -41,5 +41,13 @@ namespace Vuffeli.Net.Worker.Library.Tests.ClientTests.Customers
 
             Assert.NotNull(test);
         }
+
+        [Fact]
+        public async Task TestGetPrinterClientsAsync()
+        {
+            var test = await _webshipperSharpService.GetPrinterClientsAsync();
+
+            Assert.NotNull(test);
+        }
     }
 }
