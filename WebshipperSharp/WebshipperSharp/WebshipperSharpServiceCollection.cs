@@ -23,6 +23,7 @@ namespace WebshipperSharp
             services.AddTransient(x => options);
             services.AddLogging();
 
+            services.AddTransient<IWebshipperSharpService, WebshipperSharpService>();
             services.AddTransient<WebshipperSharpService>();
 
             return services;
